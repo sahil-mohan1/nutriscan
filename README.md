@@ -1,6 +1,5 @@
 # 🥗 NutriScan
 
-![NutriScan Banner](/public/banner.png) <!-- Consider adding a banner image here -->
 
 NutriScan is an AI-powered nutrition assistant and meal planner tailored specifically for the Indian food context. Built for the **"Debug Your Diet"** hackathon, this application helps users understand the nutritional value of their meals, calculate their BMI, and generate personalized meal plans based on their custom goals and dietary preferences.
 

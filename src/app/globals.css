@@ -1,26 +1,105 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
 
+/* ─── Color Tokens ─────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #2563EB;
+  --accent: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --muted: #64748B;
+  --navy: #0F172A;
+  --navy-light: #1E293B;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base ─────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: #1E293B;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Custom Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1D4ED8;
+}
+
+/* ─── Glassmorphism ────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+/* ─── Gradient Text ────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-green {
+  background: linear-gradient(135deg, var(--accent) 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Section spacing ──────────────────────────────────── */
+.section-pad {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding: 6rem 2rem;
+  }
+}
+
+/* ─── Card Shadows ─────────────────────────────────────── */
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04), 0 2px 4px -1px rgba(0,0,0,0.03);
+}
+.card-shadow-lg {
+  box-shadow: 0 10px 40px -10px rgba(37,99,235,0.15), 0 4px 6px -1px rgba(0,0,0,0.04);
+}
+
+/* ─── Animated dashed connector ────────────────────────── */
+@keyframes dashMove {
+  to { stroke-dashoffset: -20; }
+}
+.animated-dash {
+  animation: dashMove 1.5s linear infinite;
+}
+
+/* ─── DaisyUI overrides ────────────────────────────────── */
+.progress::-webkit-progress-bar {
+  background-color: #EFF6FF;
+  border-radius: 999px;
+}
+.progress::-webkit-progress-value {
+  border-radius: 999px;
 }
